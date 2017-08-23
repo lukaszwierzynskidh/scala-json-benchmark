@@ -55,7 +55,7 @@ object ScalaJsonBenchmark extends App {
   def TestWritePlay[A](name: String): Long = {
     val start_time = System.currentTimeMillis()
     val pw = new PrintWriter(new File("src/main/resources/restaurant_play_write.json"))
-    val NUM_ROWS = 25000
+    val NUM_ROWS = 3500
     (0 until NUM_ROWS) foreach { _ =>
       pw.write(RestaurantDeserializerPlay() + "\n")
     }
@@ -67,7 +67,7 @@ object ScalaJsonBenchmark extends App {
   def TestWriteLift[A](name: String): Long = {
     val start_time = System.currentTimeMillis()
     val pw = new PrintWriter(new File("src/main/resources/restaurant_lift_write.json"))
-    val NUM_ROWS = 25000
+    val NUM_ROWS = 3500
     (0 until NUM_ROWS) foreach { _ =>
       pw.write(RestaurantDeserializerLift() + "\n")
     }
@@ -79,7 +79,7 @@ object ScalaJsonBenchmark extends App {
   def TestWriteSpray[A](name: String): Long = {
     val start_time = System.currentTimeMillis()
     val pw = new PrintWriter(new File("src/main/resources/restaurant_spray_write.json"))
-    val NUM_ROWS = 25000
+    val NUM_ROWS = 3500
     (0 until NUM_ROWS) foreach { _ =>
       pw.write(RestaurantDeserializerSpray() + "\n")
     }
@@ -91,7 +91,7 @@ object ScalaJsonBenchmark extends App {
   def TestWriteJson4s[A](name: String): Long = {
     val start_time = System.currentTimeMillis()
     val pw = new PrintWriter(new File("src/main/resources/restaurant_json4s_write.json"))
-    val NUM_ROWS = 25000
+    val NUM_ROWS = 3500
     (0 until NUM_ROWS) foreach { _ =>
       pw.write(RestaurantDeserializerJson4s() + "\n")
     }
