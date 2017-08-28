@@ -232,19 +232,19 @@ object RestaurantGen {
   }
 }
 
-object RestaurantDeserializerLift {
+object RestaurantSerializerLift {
   implicit val formats = net.liftweb.json.Serialization.formats(net.liftweb.json.NoTypeHints)
 
   def apply(): String = net.liftweb.json.Serialization.write(RestaurantGen())
 }
 
-object RestaurantDeserializerJson4s {
+object RestaurantSerializerJson4s {
   implicit val formats = org.json4s.jackson.Serialization.formats(org.json4s.NoTypeHints)
 
   def apply(): String = org.json4s.jackson.Serialization.write(RestaurantGen())
 }
 
-object RestaurantDeserializerPlay {
+object RestaurantSerializerPlay {
   val restaurant = Restaurant(
     id = "id",
     code = None,
@@ -285,7 +285,7 @@ object RestaurantDeserializerPlay {
   def apply(): String = play.api.libs.json.Json.toJson(restaurant).toString
 }
 
-object RestaurantDeserializerSpray {
+object RestaurantSerializerSpray {
   val restaurant = Restaurant(
     id = "id",
     code = None,

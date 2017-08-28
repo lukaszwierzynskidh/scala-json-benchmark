@@ -5,6 +5,12 @@ import spray.json._
 
 import scala.io._
 
+//import java.lang.reflect.{Type, ParameterizedType}
+//import com.fasterxml.jackson.databind.ObjectMapper
+//import com.fasterxml.jackson.annotation.JsonProperty
+//import com.fasterxml.jackson.module.scala.DefaultScalaModule
+//import com.fasterxml.jackson.core.`type`.TypeReference
+
 /**
  * Created by nlw on 18/04/15.
  *
@@ -76,72 +82,42 @@ object ScalaJsonBenchmark extends App {
   /** Play deserialization for 1, 10, 50, 100, 500 and 1000 restaurants */
   def TestWritePlay1Restaurant: Long = {
     val start_time = System.currentTimeMillis()
-    val pw = new PrintWriter(new File("src/main/resources/restaurant_1_play_write.json"))
-    val NUM_ROWS = 1
-    (0 until NUM_ROWS) foreach { _ =>
-      pw.write(RestaurantDeserializerPlay() + "\n")
-    }
-    pw.close()
+    RestaurantSerializerPlay()
     val end_time = System.currentTimeMillis()
     end_time - start_time
   }
 
   def TestWritePlay10Restaurant: Long = {
     val start_time = System.currentTimeMillis()
-    val pw = new PrintWriter(new File("src/main/resources/restaurant_10_play_write.json"))
-    val NUM_ROWS = 10
-    (0 until NUM_ROWS) foreach { _ =>
-      pw.write(RestaurantDeserializerPlay() + "\n")
-    }
-    pw.close()
+    RestaurantSerializerPlay()
     val end_time = System.currentTimeMillis()
     end_time - start_time
   }
 
   def TestWritePlay50Restaurant: Long = {
     val start_time = System.currentTimeMillis()
-    val pw = new PrintWriter(new File("src/main/resources/restaurant_50_play_write.json"))
-    val NUM_ROWS = 50
-    (0 until NUM_ROWS) foreach { _ =>
-      pw.write(RestaurantDeserializerPlay() + "\n")
-    }
-    pw.close()
+    RestaurantSerializerPlay()
     val end_time = System.currentTimeMillis()
     end_time - start_time
   }
 
   def TestWritePlay100Restaurant: Long = {
     val start_time = System.currentTimeMillis()
-    val pw = new PrintWriter(new File("src/main/resources/restaurant_100_play_write.json"))
-    val NUM_ROWS = 100
-    (0 until NUM_ROWS) foreach { _ =>
-      pw.write(RestaurantDeserializerPlay() + "\n")
-    }
-    pw.close()
+    RestaurantSerializerPlay()
     val end_time = System.currentTimeMillis()
     end_time - start_time
   }
 
   def TestWritePlay500Restaurant: Long = {
     val start_time = System.currentTimeMillis()
-    val pw = new PrintWriter(new File("src/main/resources/restaurant_500_play_write.json"))
-    val NUM_ROWS = 500
-    (0 until NUM_ROWS) foreach { _ =>
-      pw.write(RestaurantDeserializerPlay() + "\n")
-    }
-    pw.close()
+    RestaurantSerializerPlay()
     val end_time = System.currentTimeMillis()
     end_time - start_time
   }
 
   def TestWritePlay1000Restaurant: Long = {
     val start_time = System.currentTimeMillis()
-    val pw = new PrintWriter(new File("src/main/resources/restaurant_1000_play_write.json"))
-    val NUM_ROWS = 1000
-    (0 until NUM_ROWS) foreach { _ =>
-      pw.write(RestaurantDeserializerPlay() + "\n")
-    }
-    pw.close()
+    RestaurantSerializerPlay()
     val end_time = System.currentTimeMillis()
     end_time - start_time
   }
@@ -150,72 +126,42 @@ object ScalaJsonBenchmark extends App {
   /** Lift deserialization for 1, 10, 50, 100, 500 and 1000 restaurants */
   def TestWriteLift1Restaurant: Long = {
     val start_time = System.currentTimeMillis()
-    val pw = new PrintWriter(new File("src/main/resources/restaurant_1_lift_write.json"))
-    val NUM_ROWS = 1
-    (0 until NUM_ROWS) foreach { _ =>
-      pw.write(RestaurantDeserializerLift() + "\n")
-    }
-    pw.close()
+    RestaurantSerializerLift()
     val end_time = System.currentTimeMillis()
     end_time - start_time
   }
 
   def TestWriteLift10Restaurant: Long = {
     val start_time = System.currentTimeMillis()
-    val pw = new PrintWriter(new File("src/main/resources/restaurant_10_lift_write.json"))
-    val NUM_ROWS = 10
-    (0 until NUM_ROWS) foreach { _ =>
-      pw.write(RestaurantDeserializerLift() + "\n")
-    }
-    pw.close()
+    RestaurantSerializerLift()
     val end_time = System.currentTimeMillis()
     end_time - start_time
   }
 
   def TestWriteLift50Restaurant: Long = {
     val start_time = System.currentTimeMillis()
-    val pw = new PrintWriter(new File("src/main/resources/restaurant_50_lift_write.json"))
-    val NUM_ROWS = 50
-    (0 until NUM_ROWS) foreach { _ =>
-      pw.write(RestaurantDeserializerLift() + "\n")
-    }
-    pw.close()
+    RestaurantSerializerLift()
     val end_time = System.currentTimeMillis()
     end_time - start_time
   }
 
   def TestWriteLift100Restaurant: Long = {
     val start_time = System.currentTimeMillis()
-    val pw = new PrintWriter(new File("src/main/resources/restaurant_100_lift_write.json"))
-    val NUM_ROWS = 100
-    (0 until NUM_ROWS) foreach { _ =>
-      pw.write(RestaurantDeserializerLift() + "\n")
-    }
-    pw.close()
+    RestaurantSerializerLift()
     val end_time = System.currentTimeMillis()
     end_time - start_time
   }
 
   def TestWriteLift500Restaurant: Long = {
     val start_time = System.currentTimeMillis()
-    val pw = new PrintWriter(new File("src/main/resources/restaurant_500_lift_write.json"))
-    val NUM_ROWS = 500
-    (0 until NUM_ROWS) foreach { _ =>
-      pw.write(RestaurantDeserializerLift() + "\n")
-    }
-    pw.close()
+    RestaurantSerializerLift()
     val end_time = System.currentTimeMillis()
     end_time - start_time
   }
 
   def TestWriteLift1000Restaurant: Long = {
     val start_time = System.currentTimeMillis()
-    val pw = new PrintWriter(new File("src/main/resources/restaurant_1000_lift_write.json"))
-    val NUM_ROWS = 1000
-    (0 until NUM_ROWS) foreach { _ =>
-      pw.write(RestaurantDeserializerLift() + "\n")
-    }
-    pw.close()
+    RestaurantSerializerLift()
     val end_time = System.currentTimeMillis()
     end_time - start_time
   }
@@ -224,72 +170,42 @@ object ScalaJsonBenchmark extends App {
   /** Spray deserialization for 1, 10, 50, 100, 500 and 1000 restaurants */
   def TestWriteSpray1Restaurant: Long = {
     val start_time = System.currentTimeMillis()
-    val pw = new PrintWriter(new File("src/main/resources/restaurant_1_spray_write.json"))
-    val NUM_ROWS = 1
-    (0 until NUM_ROWS) foreach { _ =>
-      pw.write(RestaurantDeserializerSpray() + "\n")
-    }
-    pw.close()
+    RestaurantSerializerSpray()
     val end_time = System.currentTimeMillis()
     end_time - start_time
   }
 
   def TestWriteSpray10Restaurant: Long = {
     val start_time = System.currentTimeMillis()
-    val pw = new PrintWriter(new File("src/main/resources/restaurant_10_spray_write.json"))
-    val NUM_ROWS = 10
-    (0 until NUM_ROWS) foreach { _ =>
-      pw.write(RestaurantDeserializerSpray() + "\n")
-    }
-    pw.close()
+    RestaurantSerializerSpray()
     val end_time = System.currentTimeMillis()
     end_time - start_time
   }
 
   def TestWriteSpray50Restaurant: Long = {
     val start_time = System.currentTimeMillis()
-    val pw = new PrintWriter(new File("src/main/resources/restaurant_50_spray_write.json"))
-    val NUM_ROWS = 50
-    (0 until NUM_ROWS) foreach { _ =>
-      pw.write(RestaurantDeserializerSpray() + "\n")
-    }
-    pw.close()
+    RestaurantSerializerSpray()
     val end_time = System.currentTimeMillis()
     end_time - start_time
   }
 
   def TestWriteSpray100Restaurant: Long = {
     val start_time = System.currentTimeMillis()
-    val pw = new PrintWriter(new File("src/main/resources/restaurant_100_spray_write.json"))
-    val NUM_ROWS = 100
-    (0 until NUM_ROWS) foreach { _ =>
-      pw.write(RestaurantDeserializerSpray() + "\n")
-    }
-    pw.close()
+    RestaurantSerializerSpray()
     val end_time = System.currentTimeMillis()
     end_time - start_time
   }
 
   def TestWriteSpray500Restaurant: Long = {
     val start_time = System.currentTimeMillis()
-    val pw = new PrintWriter(new File("src/main/resources/restaurant_500_spray_write.json"))
-    val NUM_ROWS = 500
-    (0 until NUM_ROWS) foreach { _ =>
-      pw.write(RestaurantDeserializerSpray() + "\n")
-    }
-    pw.close()
+    RestaurantSerializerSpray()
     val end_time = System.currentTimeMillis()
     end_time - start_time
   }
 
   def TestWriteSpray1000Restaurant: Long = {
     val start_time = System.currentTimeMillis()
-    val pw = new PrintWriter(new File("src/main/resources/restaurant_1000_spray_write.json"))
-    val NUM_ROWS = 1000
-    (0 until NUM_ROWS) foreach { _ =>
-      pw.write(RestaurantDeserializerSpray() + "\n")
-    }
-    pw.close()
+    RestaurantSerializerSpray()
     val end_time = System.currentTimeMillis()
     end_time - start_time
   }
@@ -298,24 +214,14 @@ object ScalaJsonBenchmark extends App {
   /** Json4s deserialization for 1, 10, 50, 100, 500 and 1000 restaurants */
   def TestWriteJson4s1Restaurant: Long = {
     val start_time = System.currentTimeMillis()
-    val pw = new PrintWriter(new File("src/main/resources/restaurant_1_json4s_write.json"))
-    val NUM_ROWS = 1
-    (0 until NUM_ROWS) foreach { _ =>
-      pw.write(RestaurantDeserializerJson4s() + "\n")
-    }
-    pw.close()
+    RestaurantSerializerJson4s()
     val end_time = System.currentTimeMillis()
     end_time - start_time
   }
 
   def TestWriteJson4s10Restaurant: Long = {
     val start_time = System.currentTimeMillis()
-    val pw = new PrintWriter(new File("src/main/resources/restaurant_10_json4s_write.json"))
-    val NUM_ROWS = 10
-    (0 until NUM_ROWS) foreach { _ =>
-      pw.write(RestaurantDeserializerJson4s() + "\n")
-    }
-    pw.close()
+    RestaurantSerializerJson4s()
     val end_time = System.currentTimeMillis()
     end_time - start_time
   }
@@ -325,7 +231,7 @@ object ScalaJsonBenchmark extends App {
     val pw = new PrintWriter(new File("src/main/resources/restaurant_50_json4s_write.json"))
     val NUM_ROWS = 50
     (0 until NUM_ROWS) foreach { _ =>
-      pw.write(RestaurantDeserializerJson4s() + "\n")
+      pw.write(RestaurantSerializerJson4s() + "\n")
     }
     pw.close()
     val end_time = System.currentTimeMillis()
@@ -334,36 +240,21 @@ object ScalaJsonBenchmark extends App {
 
   def TestWriteJson4s100Restaurant: Long = {
     val start_time = System.currentTimeMillis()
-    val pw = new PrintWriter(new File("src/main/resources/restaurant_100_json4s_write.json"))
-    val NUM_ROWS = 100
-    (0 until NUM_ROWS) foreach { _ =>
-      pw.write(RestaurantDeserializerJson4s() + "\n")
-    }
-    pw.close()
+    RestaurantSerializerJson4s()
     val end_time = System.currentTimeMillis()
     end_time - start_time
   }
 
   def TestWriteJson4s500Restaurant: Long = {
     val start_time = System.currentTimeMillis()
-    val pw = new PrintWriter(new File("src/main/resources/restaurant_500_json4s_write.json"))
-    val NUM_ROWS = 500
-    (0 until NUM_ROWS) foreach { _ =>
-      pw.write(RestaurantDeserializerJson4s() + "\n")
-    }
-    pw.close()
+    RestaurantSerializerJson4s()
     val end_time = System.currentTimeMillis()
     end_time - start_time
   }
 
   def TestWriteJson4s1000Restaurant: Long = {
     val start_time = System.currentTimeMillis()
-    val pw = new PrintWriter(new File("src/main/resources/restaurant_1000_json4s_write.json"))
-    val NUM_ROWS = 1000
-    (0 until NUM_ROWS) foreach { _ =>
-      pw.write(RestaurantDeserializerJson4s() + "\n")
-    }
-    pw.close()
+    RestaurantSerializerJson4s()
     val end_time = System.currentTimeMillis()
     end_time - start_time
   }
@@ -699,3 +590,31 @@ class SprayParser extends MyParser {
     s.parseJson.convertTo[Restaurant]
   }
 }
+
+//object JacksonWrapper {
+//  val mapper = new ObjectMapper()
+//  mapper.registerModule(DefaultScalaModule)
+//
+//  def serialize(value: Any): String = {
+//    import java.io.StringWriter
+//    val writer = new StringWriter()
+//    mapper.writeValue(writer, value)
+//    writer.toString
+//  }
+//
+//  def deserialize[T: Manifest](value: String) : T =
+//    mapper.readValue(value, typeReference[T])
+//
+//  private [this] def typeReference[T: Manifest] = new TypeReference[T] {
+//    override def getType = typeFromManifest(manifest[T])
+//  }
+//
+//  private [this] def typeFromManifest(m: Manifest[_]): Type = {
+//    if (m.typeArguments.isEmpty) { m.erasure }
+//    else new ParameterizedType {
+//      def getRawType = m.erasure
+//      def getActualTypeArguments = m.typeArguments.map(typeFromManifest).toArray
+//      def getOwnerType = null
+//    }
+//  }
+//}
