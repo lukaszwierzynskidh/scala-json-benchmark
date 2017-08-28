@@ -1,4 +1,4 @@
-import RestaurantGen.{delivery, point}
+import RestaurantGen._
 import spray.json.DefaultJsonProtocol._
 import spray.json._
 
@@ -22,14 +22,13 @@ case class Restaurant(
   compact_special_days: Option[String],
   country_code: Option[String],
   customer_type: Option[String],
-  external_code: Option[String],
-  external_id: Option[String],
-  minimum_delivery_fee: Option[Int],
-  minimum_delivery_minutes: Option[Int]
-//  minimum_pickup_minutes: Option[Int]
+  minimum_pickup_minutes: Option[Int],
+  cuisines: List[Cuisine],
+  food_characteristics: List[FoodCharacteristic],
+  menus: Option[List[Menu]]
+//  plugin_tags: Option[Array[String]],
 //  quality_grade: Option[Int],
 //  url_slug: Option[String]
-//  plugin_tags: Option[Array[String]],
 //  delivery_fee: Option[Int],
 //  minimum_order_value: Option[Int],
 //  rating: Option[Rating],
@@ -37,9 +36,10 @@ case class Restaurant(
 //  image_url: Option[String],
 //  logo_url: Option[String]
 //  event_ids: List[Int],
-//  cuisines: List[Cuisine],
-//  food_characteristics: List[FoodCharacteristic],
-//  menus: Option[List[Menu]],
+//  external_code: Option[String],
+//  external_id: Option[String],
+//  minimum_delivery_fee: Option[Int],
+//  minimum_delivery_minutes: Option[Int]
 //  timezone: Option[String]
 )
 
@@ -135,11 +135,14 @@ object RestaurantGen {
     val compact_special_days = Some("compact_special_days")
     val country_code = Some("country_code")
     val customer_type = Some("customerType")
-    val external_code = Some("external_code")
-    val external_id = Some("external_id")
-    val minimum_delivery_fee = Some(12)
-    val minimum_delivery_minutes = Some(32)
-//    val minimum_pickup_minutes = Some(32)
+    val minimum_pickup_minutes = Some(32)
+    val cuisines = List(cuisine)
+    val food_characteristics = List(foodCharacteristicsFunc, foodCharacteristicsFunc)
+    val menus = Some(List(menuFunc, menuFunc))
+//    val external_code = Some("external_code")
+//    val external_id = Some("external_id")
+//    val minimum_delivery_fee = Some(12)
+//    val minimum_delivery_minutes = Some(32)
 //    val quality_grade = Some(32)
 //    val url_slug = Some("url_slug")
 //    val plugin_tags = Some(Array("plugin_tags", "plugin_tags"))
@@ -150,15 +153,14 @@ object RestaurantGen {
 //    val image_url = Some("sdsdsdsadsadsa")
 //    val logo_url = Some("logoUrl")
 //    val event_ids = List(2, 35, 3)
-//    val cuisines = List(cuisine)
-//    val food_characteristics = List(foodCharacteristicsFunc, foodCharacteristicsFunc)
-//    val menus = None
 //    val timezone = None
     Restaurant(id, code, location, name, description, tags,
       compact_schedules, listing_scores, payment_types, deliveries, delivery_path_ids,
-      city_id, commission, compact_discount_times, compact_schedules_with_menus, compact_special_days, country_code, customer_type,
-      external_code, external_id, minimum_delivery_fee, minimum_delivery_minutes)//, minimum_pickup_minutes)
-      //quality_grade, url_slug) //plugin_tags, delivery_fee, minimum_order_value, Some(rating), budget, image_url, logo_url)//, event_ids, cuisines, food_characteristics, menus, timezone)
+      city_id, commission, compact_discount_times, compact_schedules_with_menus, compact_special_days, country_code,
+      customer_type, minimum_pickup_minutes, cuisines, food_characteristics, menus)
+      //quality_grade, url_slug) //external_code, external_id, minimum_delivery_fee, minimum_delivery_minutes,
+      //plugin_tags, delivery_fee, minimum_order_value, Some(rating), budget, image_url, logo_url)//, event_ids,
+      //cuisines, food_characteristics, menus, timezone)
   }
 
   def foodCharacteristicsFunc = {
@@ -211,6 +213,23 @@ object RestaurantGen {
     val longitude = 3423.324F
     Point(latitude, longitude)
   }
+
+  def menuFunc = {
+    val menu_type = "id"
+    val opening_time = "name_cuisine"
+    val closing_time = "url_slug"
+    val items = Some(List(menuItem, menuItem, menuItem))
+    Menu(menu_type, opening_time, closing_time, items)
+  }
+
+  def menuItem = {
+    val id = "id"
+    val name = "Knusprige Hühnerfiletstückchen"
+    val description = Some("dazu gekochter oder gebratener Reis oder gebratene Nudeln")
+    val price = 232
+    val image_url = Some("image_url")
+    MenuItem(id, name, description, price, image_url)
+  }
 }
 
 object RestaurantDeserializerLift {
@@ -245,10 +264,10 @@ object RestaurantDeserializerPlay {
     compact_special_days = Some("compact_special_days"),
     country_code = Some("country_code"),
     customer_type = Some("customerType"),
-    external_code = Some("external_code"),
-    external_id = Some("external_id"),
-    minimum_delivery_fee = Some(12),
-    minimum_delivery_minutes = Some(32)
+    minimum_pickup_minutes = Some(43543),
+    cuisines = List(cuisine),
+    food_characteristics = List(foodCharacteristicsFunc, foodCharacteristicsFunc),
+    menus = Some(List(menuFunc, menuFunc))
   )
 
   implicit val pointWrites = play.api.libs.json.Json.writes[Point]
@@ -286,10 +305,10 @@ object RestaurantDeserializerSpray {
     compact_special_days = Some("compact_special_days"),
     country_code = Some("country_code"),
     customer_type = Some("customerType"),
-    external_code = Some("external_code"),
-    external_id = Some("external_id"),
-    minimum_delivery_fee = Some(12),
-    minimum_delivery_minutes = Some(32)
+    minimum_pickup_minutes = Some(43543),
+    cuisines = List(cuisine),
+    food_characteristics = List(foodCharacteristicsFunc, foodCharacteristicsFunc),
+    menus = Some(List(menuFunc, menuFunc))
   )
 
   implicit val pointFormat = jsonFormat2(Point)
