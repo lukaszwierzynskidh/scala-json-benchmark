@@ -446,7 +446,7 @@ object ScalaJsonBenchmark extends App {
     var deserializeTime = TestWritePlay1Restaurant
     totalPlayWriteTime1Restaurant += deserializeTime
   }
-  println(f"Play serializes 1 restaurant in $totalPlayReadTime1Restaurant%05d and deserializes in $totalPlayWriteTime1Restaurant%05d for 10000 iterations")
+  println(f"Play deserializes 1 restaurant in $totalPlayReadTime1Restaurant%05d and serializes in $totalPlayWriteTime1Restaurant%05d for 10000 iterations")
 
   for (i <- 1 to 10000) {
     var serializeTime = TestReadRestaurant1(theJson4sFuncs._1)(theJson4sFuncs._2.apply)
@@ -454,7 +454,7 @@ object ScalaJsonBenchmark extends App {
     var deserializeTime = TestWriteJson4s1Restaurant
     totalJson4sWriteTime1Restaurant += deserializeTime
   }
-  println(f"Json4s serializes 1 restaurant in $totalJson4sReadTime1Restaurant%05d and deserializes in $totalJson4sWriteTime1Restaurant%05d for 10000 iterations")
+  println(f"Json4s deserializes 1 restaurant in $totalJson4sReadTime1Restaurant%05d and serializes in $totalJson4sWriteTime1Restaurant%05d for 10000 iterations")
 
   for (i <- 1 to 10000) {
     var serializeTime = TestReadRestaurant1(theSprayFuncs._1)(theSprayFuncs._2.apply)
@@ -462,7 +462,7 @@ object ScalaJsonBenchmark extends App {
     var deserializeTime = TestWriteSpray1Restaurant
     totalSprayWriteTime1Restaurant += deserializeTime
   }
-  println(f"Spray serializes 1 restaurant in $totalSprayReadTime1Restaurant%05d and deserializes in $totalSprayWriteTime1Restaurant%05d for 10000 iterations")
+  println(f"Spray deserializes 1 restaurant in $totalSprayReadTime1Restaurant%05d and serializes in $totalSprayWriteTime1Restaurant%05d for 10000 iterations")
 
   for (i <- 1 to 10000) {
     var serializeTime = TestReadRestaurant1(theLiftFuncs._1)(theSprayFuncs._2.apply)
@@ -470,7 +470,7 @@ object ScalaJsonBenchmark extends App {
     var deserializeTime = TestWriteLift1Restaurant
     totalLiftWriteTime1Restaurant += deserializeTime
   }
-  println(f"Lift serializes 1 restaurant in $totalLiftReadTime1Restaurant%05d and deserializes in $totalLiftWriteTime1Restaurant%05d for 10000 iterations\n")
+  println(f"Lift deserializes 1 restaurant in $totalLiftReadTime1Restaurant%05d and serializes in $totalLiftWriteTime1Restaurant%05d for 10000 iterations\n")
 
 
   /** Write 10 restaurants in play, json4s, spray and lift */
@@ -480,7 +480,7 @@ object ScalaJsonBenchmark extends App {
     var deserializeTime = TestWritePlay10Restaurant
     totalPlayWriteTime10Restaurant += deserializeTime
   }
-  println(f"Play serializes 10 restaurants in $totalPlayReadTime10Restaurant%05d and deserializes in $totalPlayWriteTime10Restaurant%05d for 10000 iterations")
+  println(f"Play deserializes 10 restaurants in $totalPlayReadTime10Restaurant%05d and serializes in $totalPlayWriteTime10Restaurant%05d for 10000 iterations")
 
   for (i <- 1 to 10000) {
     var serializeTime = TestReadRestaurant10(theJson4sFuncs._1)(theJson4sFuncs._2.apply)
@@ -488,7 +488,7 @@ object ScalaJsonBenchmark extends App {
     var deserializeTime = TestWriteJson4s10Restaurant
     totalJson4sWriteTime10Restaurant += deserializeTime
   }
-  println(f"Json4s serializes 10 restaurants in $totalJson4sReadTime10Restaurant%05d and deserializes in $totalJson4sWriteTime10Restaurant%05d for 10000 iterations")
+  println(f"Json4s deserializes 10 restaurants in $totalJson4sReadTime10Restaurant%05d and serializes in $totalJson4sWriteTime10Restaurant%05d for 10000 iterations")
 
   for (i <- 1 to 10000) {
     var serializeTime = TestReadRestaurant10(theSprayFuncs._1)(theSprayFuncs._2.apply)
@@ -496,7 +496,7 @@ object ScalaJsonBenchmark extends App {
     var deserializeTime = TestWriteSpray10Restaurant
     totalSprayWriteTime10Restaurant += deserializeTime
   }
-  println(f"Spray serializes 10 restaurants in $totalSprayReadTime10Restaurant%05d and deserializes in $totalSprayWriteTime10Restaurant%05d for 10000 iterations")
+  println(f"Spray deserializes 10 restaurants in $totalSprayReadTime10Restaurant%05d and serializes in $totalSprayWriteTime10Restaurant%05d for 10000 iterations")
 
   for (i <- 1 to 10000) {
     var serializeTime = TestReadRestaurant10(theLiftFuncs._1)(theSprayFuncs._2.apply)
@@ -504,7 +504,7 @@ object ScalaJsonBenchmark extends App {
     var deserializeTime = TestWriteLift10Restaurant
     totalLiftWriteTime10Restaurant += deserializeTime
   }
-  println(f"Lift serializes 10 restaurants in $totalLiftReadTime10Restaurant%05d and deserializes in $totalLiftWriteTime10Restaurant%05d for 10000 iterations\n")
+  println(f"Lift deserializes 10 restaurants in $totalLiftReadTime10Restaurant%05d and serializes in $totalLiftWriteTime10Restaurant%05d for 10000 iterations\n")
 
 
   /** Write 50 restaurants in play, json4s, spray and lift */
@@ -514,7 +514,7 @@ object ScalaJsonBenchmark extends App {
     var deserializeTime = TestWritePlay50Restaurant
     totalPlayWriteTime50Restaurant += deserializeTime
   }
-  println(f"Play serializes 50 restaurants in $totalPlayReadTime50Restaurant%05d and deserializes in $totalPlayWriteTime50Restaurant%05d for 10000 iterations")
+  println(f"Play deserializes 50 restaurants in $totalPlayReadTime50Restaurant%05d and serializes in $totalPlayWriteTime50Restaurant%05d for 10000 iterations")
 
   for (i <- 1 to 10000) {
     var serializeTime = TestReadRestaurant50(theJson4sFuncs._1)(theJson4sFuncs._2.apply)
@@ -522,7 +522,7 @@ object ScalaJsonBenchmark extends App {
     var deserializeTime = TestWriteJson4s50Restaurant
     totalJson4sWriteTime50Restaurant += deserializeTime
   }
-  println(f"Json4s serializes 50 restaurants in $totalJson4sReadTime50Restaurant%05d and deserializes in $totalJson4sWriteTime50Restaurant%05d for 10000 iterations")
+  println(f"Json4s deserializes 50 restaurants in $totalJson4sReadTime50Restaurant%05d and serializes in $totalJson4sWriteTime50Restaurant%05d for 10000 iterations")
 
   for (i <- 1 to 10000) {
     var serializeTime = TestReadRestaurant50(theSprayFuncs._1)(theSprayFuncs._2.apply)
@@ -530,7 +530,7 @@ object ScalaJsonBenchmark extends App {
     var deserializeTime = TestWriteSpray50Restaurant
     totalSprayWriteTime50Restaurant += deserializeTime
   }
-  println(f"Spray serializes 50 restaurants in $totalSprayReadTime50Restaurant%05d and deserializes in $totalSprayWriteTime50Restaurant%05d for 10000 iterations")
+  println(f"Spray deserializes 50 restaurants in $totalSprayReadTime50Restaurant%05d and serializes in $totalSprayWriteTime50Restaurant%05d for 10000 iterations")
 
   for (i <- 1 to 10000) {
     var serializeTime = TestReadRestaurant50(theLiftFuncs._1)(theSprayFuncs._2.apply)
@@ -538,7 +538,7 @@ object ScalaJsonBenchmark extends App {
     var deserializeTime = TestWriteLift50Restaurant
     totalLiftWriteTime50Restaurant += deserializeTime
   }
-  println(f"Lift serializes 50 restaurants in $totalLiftReadTime50Restaurant%05d and deserializes in $totalLiftWriteTime50Restaurant%05d for 10000 iterations\n")
+  println(f"Lift deserializes 50 restaurants in $totalLiftReadTime50Restaurant%05d and serializes in $totalLiftWriteTime50Restaurant%05d for 10000 iterations\n")
 
 
   /** Write 100 restaurants in play, json4s, spray and lift */
@@ -548,7 +548,7 @@ object ScalaJsonBenchmark extends App {
     var deserializeTime = TestWritePlay100Restaurant
     totalPlayWriteTime100Restaurant += deserializeTime
   }
-  println(f"Play serializes 100 restaurants in $totalPlayReadTime100Restaurant%05d and deserializes in $totalPlayWriteTime100Restaurant%05d for 10000 iterations")
+  println(f"Play deserializes 100 restaurants in $totalPlayReadTime100Restaurant%05d and serializes in $totalPlayWriteTime100Restaurant%05d for 10000 iterations")
 
   for (i <- 1 to 10000) {
     var serializeTime = TestReadRestaurant100(theJson4sFuncs._1)(theJson4sFuncs._2.apply)
@@ -556,7 +556,7 @@ object ScalaJsonBenchmark extends App {
     var deserializeTime = TestWriteJson4s100Restaurant
     totalJson4sWriteTime100Restaurant += deserializeTime
   }
-  println(f"Json4s serializes 100 restaurants in $totalJson4sReadTime100Restaurant%05d and deserializes in $totalJson4sWriteTime100Restaurant%05d for 10000 iterations")
+  println(f"Json4s deserializes 100 restaurants in $totalJson4sReadTime100Restaurant%05d and serializes in $totalJson4sWriteTime100Restaurant%05d for 10000 iterations")
 
   for (i <- 1 to 10000) {
     var serializeTime = TestReadRestaurant100(theSprayFuncs._1)(theSprayFuncs._2.apply)
@@ -564,7 +564,7 @@ object ScalaJsonBenchmark extends App {
     var deserializeTime = TestWriteSpray100Restaurant
     totalSprayWriteTime100Restaurant += deserializeTime
   }
-  println(f"Spray serializes 100 restaurants in $totalSprayReadTime100Restaurant%05d and deserializes in $totalSprayWriteTime100Restaurant%05d for 10000 iterations")
+  println(f"Spray deserializes 100 restaurants in $totalSprayReadTime100Restaurant%05d and serializes in $totalSprayWriteTime100Restaurant%05d for 10000 iterations")
 
   for (i <- 1 to 10000) {
     var serializeTime = TestReadRestaurant100(theLiftFuncs._1)(theSprayFuncs._2.apply)
@@ -572,7 +572,7 @@ object ScalaJsonBenchmark extends App {
     var deserializeTime = TestWriteLift100Restaurant
     totalLiftWriteTime100Restaurant += deserializeTime
   }
-  println(f"Lift serializes 100 restaurants in $totalLiftReadTime100Restaurant%05d and deserializes in $totalLiftWriteTime100Restaurant%05d for 10000 iterations\n")
+  println(f"Lift deserializes 100 restaurants in $totalLiftReadTime100Restaurant%05d and serializes in $totalLiftWriteTime100Restaurant%05d for 10000 iterations\n")
 
 
   /** Write 500 restaurants in play, json4s, spray and lift */
@@ -582,7 +582,7 @@ object ScalaJsonBenchmark extends App {
     var deserializeTime = TestWritePlay500Restaurant
     totalPlayWriteTime500Restaurant += deserializeTime
   }
-  println(f"Play serializes 500 restaurants in $totalPlayReadTime500Restaurant%05d and deserializes in $totalPlayWriteTime500Restaurant%05d for 10000 iterations")
+  println(f"Play deserializes 500 restaurants in $totalPlayReadTime500Restaurant%05d and deserializes in $totalPlayWriteTime500Restaurant%05d for 10000 iterations")
 
   for (i <- 1 to 10000) {
     var serializeTime = TestReadRestaurant500(theJson4sFuncs._1)(theJson4sFuncs._2.apply)
@@ -590,7 +590,7 @@ object ScalaJsonBenchmark extends App {
     var deserializeTime = TestWriteJson4s500Restaurant
     totalJson4sWriteTime500Restaurant += deserializeTime
   }
-  println(f"Json4s serializes 500 restaurants in $totalJson4sReadTime500Restaurant%05d and deserializes in $totalJson4sWriteTime500Restaurant%05d for 10000 iterations")
+  println(f"Json4s deserializes 500 restaurants in $totalJson4sReadTime500Restaurant%05d and serializes in $totalJson4sWriteTime500Restaurant%05d for 10000 iterations")
 
   for (i <- 1 to 10000) {
     var serializeTime = TestReadRestaurant500(theSprayFuncs._1)(theSprayFuncs._2.apply)
@@ -598,7 +598,7 @@ object ScalaJsonBenchmark extends App {
     var deserializeTime = TestWriteSpray500Restaurant
     totalSprayWriteTime500Restaurant += deserializeTime
   }
-  println(f"Spray serializes 500 restaurants in $totalSprayReadTime500Restaurant%05d and deserializes in $totalSprayWriteTime500Restaurant%05d for 10000 iterations")
+  println(f"Spray deserializes 500 restaurants in $totalSprayReadTime500Restaurant%05d and serializes in $totalSprayWriteTime500Restaurant%05d for 10000 iterations")
 
   for (i <- 1 to 10000) {
     var serializeTime = TestReadRestaurant500(theLiftFuncs._1)(theSprayFuncs._2.apply)
@@ -606,7 +606,7 @@ object ScalaJsonBenchmark extends App {
     var deserializeTime = TestWriteLift500Restaurant
     totalLiftWriteTime500Restaurant += deserializeTime
   }
-  println(f"Lift serializes 500 restaurants in $totalLiftReadTime500Restaurant%05d and deserializes in $totalLiftWriteTime500Restaurant%05d for 10000 iterations\n")
+  println(f"Lift deserializes 500 restaurants in $totalLiftReadTime500Restaurant%05d and serializes in $totalLiftWriteTime500Restaurant%05d for 10000 iterations\n")
 
 
   /** Write 1000 restaurants in play, json4s, spray and lift */
@@ -616,7 +616,7 @@ object ScalaJsonBenchmark extends App {
     var deserializeTime = TestWritePlay1000Restaurant
     totalPlayWriteTime1000Restaurant += deserializeTime
   }
-  println(f"Play serializes 1000 restaurants in $totalPlayReadTime1000Restaurant%05d and deserializes in $totalPlayWriteTime1000Restaurant%05d for 10000 iterations")
+  println(f"Play deserializes 1000 restaurants in $totalPlayReadTime1000Restaurant%05d and serializes in $totalPlayWriteTime1000Restaurant%05d for 10000 iterations")
 
   for (i <- 1 to 10000) {
     var serializeTime = TestReadRestaurant1000(theJson4sFuncs._1)(theJson4sFuncs._2.apply)
@@ -624,15 +624,15 @@ object ScalaJsonBenchmark extends App {
     var deserializeTime = TestWriteJson4s1000Restaurant
     totalJson4sWriteTime1000Restaurant += deserializeTime
   }
-  println(f"Json4s serializes 1000 restaurants in $totalJson4sReadTime1000Restaurant%05d and deserializes in $totalJson4sWriteTime1000Restaurant%05d for 10000 iterations")
+  println(f"Json4s deserializes 1000 restaurants in $totalJson4sReadTime1000Restaurant%05d and serializes in $totalJson4sWriteTime1000Restaurant%05d for 10000 iterations")
 
-  for (i <- 1 to 100) {
+  for (i <- 1 to 10000) {
     var serializeTime = TestReadRestaurant1000(theSprayFuncs._1)(theSprayFuncs._2.apply)
     totalSprayReadTime1000Restaurant += serializeTime
     var deserializeTime = TestWriteSpray1000Restaurant
     totalSprayWriteTime1000Restaurant += deserializeTime
   }
-  println(f"Spray serializes 1000 restaurants in $totalSprayReadTime1000Restaurant%05d and deserializes in $totalSprayWriteTime1000Restaurant%05d for 10000 iterations")
+  println(f"Spray deserializes 1000 restaurants in $totalSprayReadTime1000Restaurant%05d and serializes in $totalSprayWriteTime1000Restaurant%05d for 10000 iterations")
 
   for (i <- 1 to 10000) {
     var serializeTime = TestReadRestaurant1000(theLiftFuncs._1)(theSprayFuncs._2.apply)
@@ -640,7 +640,7 @@ object ScalaJsonBenchmark extends App {
     var deserializeTime = TestWriteLift1000Restaurant
     totalLiftWriteTime1000Restaurant += deserializeTime
   }
-  println(f"Lift serializes 1000 restaurants in $totalLiftReadTime1000Restaurant%05d and deserializes in $totalLiftWriteTime1000Restaurant%05d for 10000 iterations\n")
+  println(f"Lift deserializes 1000 restaurants in $totalLiftReadTime1000Restaurant%05d and serializes in $totalLiftWriteTime1000Restaurant%05d for 10000 iterations\n")
 }
 
 
